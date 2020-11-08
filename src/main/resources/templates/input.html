@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Game</title>
+<script>
+	function validate(){
+		if(document.form.title.value == ""){
+			alert("Provide a title!");
+			document.form.title.focus();
+			return false;
+		}
+		if(document.form.genre.value == ""){
+			alert("Provide a genre!");
+			document.form.genre.focus();
+			return false;
+		}
+		if(document.form.players.value < 1){
+			alert("Enter a valid number of players");
+			document.form.players.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+	<form name="form" th:object="${newGame}" th:action="@{/update/{id}(id=${newGame.id})}"
+	method=POST onsubmit="return validate()">
+		Title: <input name="title" size="20" th:field="*{title}"><br>
+		Genre: <input name="genre" size="20" th:field="*{genre}"><br>
+		Number of Players: <input name="players" size="3" th:field="*{players}"><br>
+		<input name="submit" type="submit" value="submit"/>
+	</form>
+	<button onclick="window.location.href='viewAll'">View all Games</button>
+</body>
+</html>
