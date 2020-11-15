@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>View All Games</title>
+<title>View Rented Games</title>
 </head>
 <body>
 	<form>
@@ -14,10 +14,8 @@
 				<td th:text="${currentGame.players}"/>
 				<td th:text="${currentGame.platform}"/>
 				<td th:text="${currentGame.checkedOut}"/>
-				<td><a th:href="@{/edit/{id}(id=${currentGame.id})}">Edit</a></td>
-				<td></td>
-				<td><a th:href="@{/delete/{id}(id=${currentGame.id})}">Delete</a></td>
 				<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check Out</a></td>
+				<td><a th:href="@{/return/{id}(id=${currentGame.id})}">Return</a></td>
 			</tr>
 		</table>
 	</form>
