@@ -24,8 +24,17 @@ public class Game {
 	private int players;
 	@NonNull
 	private boolean checkedOut;
+	@NonNull
+	private String platform;
 	
-	
+	public Game(String title, String genre, int players, boolean checkedOut, String platform) {
+		super();
+		this.title = title;
+		this.genre = genre;
+		this.players = players;
+		this.checkedOut = checkedOut;
+		this.platform = platform;
+	}
 	public Game(String title, String genre, int players, boolean checkedOut) {
 		super();
 		this.title = title;
