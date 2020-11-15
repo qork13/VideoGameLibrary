@@ -16,7 +16,7 @@ public class WebController {
 	@Autowired
 	GameRepository repo;
 	
-	@GetMapping("/viewAll")
+	@GetMapping({"/", "viewAll"})
 	public String viewAllGames(Model model) {
 		if(repo.findAll().isEmpty()) {
 			return addNewGame(model);
