@@ -22,7 +22,17 @@ public class Game {
 	private String genre;
 	@NonNull
 	private int players;
+	@NonNull
+	private boolean checkedOut;
 	
+	
+	public Game(String title, String genre, int players, boolean checkedOut) {
+		super();
+		this.title = title;
+		this.genre = genre;
+		this.players = players;
+		this.checkedOut = checkedOut;
+	}
 	public Game(String title, String genre, int players) {
 		super();
 		this.title = title;
