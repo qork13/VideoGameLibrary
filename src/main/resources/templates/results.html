@@ -8,7 +8,6 @@
 	<form>
 		<table>
 			<tr th:each="currentGame : ${games}">
-				<td th:text="${currentGame.id}"/>
 				<td th:text="${currentGame.title}"/>
 				<td th:text="${currentGame.genre}"/>
 				<td th:text="${currentGame.players}"/>
