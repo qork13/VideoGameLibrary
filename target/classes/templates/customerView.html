@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer View</title>
+</head>
+<body>
+	<form>
+		<table>
+			<tr th:each="currentGame : ${games}">
+				<td th:text="${currentGame.title}"/>
+				<td th:text="${currentGame.genre}"/>
+				<td th:text="${currentGame.players}"/>
+				<td th:text="${currentGame.platform}"/>
+				<td th:text="${currentGame.quantity}"/>
+				<td th:text="${currentGame.checkedOut}"/>
+				<td></td>
+				<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check Out</a></td>
+			</tr>
+		</table>
+	</form>
+	<button onclick="window.location.href='../inputGame'">Add a new Game</button>
+	<button type="button" onclick="window.location.href='viewAll'">View All Games</button>
+</body>
+</html>
