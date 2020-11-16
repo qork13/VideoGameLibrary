@@ -14,6 +14,7 @@
 				<td th:text="${currentGame.players}"/>
 				<td th:text="${currentGame.platform}"/>
 				<td th:text="${currentGame.checkedOut}"/>
+				<td th:text="${currentGame.quantity}"/>
 				<td><a th:href="@{/edit/{id}(id=${currentGame.id})}">Edit</a></td>
 				<td></td>
 				<td><a th:href="@{/delete/{id}(id=${currentGame.id})}">Delete</a></td>
@@ -22,5 +23,6 @@
 		</table>
 	</form>
 	<button onclick="window.location.href='../inputGame'">Add a new Game</button>
+	<button type="button" onclick="window.location.href='../rent'">Rent A Game</button>
 </body>
 </html>
