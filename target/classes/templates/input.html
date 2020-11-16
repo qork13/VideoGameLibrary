@@ -20,6 +20,11 @@
 			document.form.players.focus();
 			return false;
 		}
+		if(document.form.platform.value == ""){
+			alert("Provide a platform!");
+			document.form.genre.focus();
+			return false;
+		}
 		return true;
 	}
 </script>
