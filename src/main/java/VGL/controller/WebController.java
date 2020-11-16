@@ -34,6 +34,16 @@ public class WebController {
 		return "input";
 	}
 	
+	@GetMapping({"/customerView"})
+	public String customerView(Model customer) {
+		if(repo.findAll().isEmpty()) {
+			return addNewGame(customer);
+		}
+		
+		customer.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.ASC, "checkedOut")));
+		return "customerView";
+	}
+	
 	@PostMapping("/inputGame")
 	public String addNewGame(@ModelAttribute Game g, Model model) {
 		repo.save(g);
