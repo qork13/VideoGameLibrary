@@ -1,13 +1,17 @@
 package VGL.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import VGL.model.Game;
 import VGL.repository.GameRepository;
@@ -35,12 +39,13 @@ public class WebController {
 	}
 	
 	@GetMapping({"/customerView"})
-	public String customerView(Model customer) {
+	public String customerView(Model customer, @Param(value = "checkedOut") boolean checkedOut) {
+		
 		if(repo.findAll().isEmpty()) {
 			return addNewGame(customer);
 		}
 		
-		customer.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.DESC, "checkedOut").and(Sort.by("platform"))));
+		customer.addAttribute("games", repo.findByAvailability(checkedOut));
 		return "customerView";
 	}
 	
