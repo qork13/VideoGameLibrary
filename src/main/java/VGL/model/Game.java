@@ -30,7 +30,6 @@ public class Game {
 	private int quantity;
 	
 	public Game(String title, String genre, int players, boolean checkedOut, String platform, int quantity) {
-
 		super();
 		this.title = title;
 		this.genre = genre;
@@ -39,6 +38,14 @@ public class Game {
 		this.platform = platform;
 		this.quantity = quantity;
 
+	}
+	
+	public Game(String title, String genre, int players, int quantity) {
+		super();
+		this.title = title;
+		this.genre = genre;
+		this.players = players;
+		
 	}
 	public Game(String title, String genre, int players, boolean checkedOut) {
 		super();
