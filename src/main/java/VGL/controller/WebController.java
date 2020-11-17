@@ -40,7 +40,7 @@ public class WebController {
 			return addNewGame(customer);
 		}
 		
-		customer.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.ASC, "checkedOut")));
+		customer.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.DESC, "checkedOut").and(Sort.by("platform"))));
 		return "customerView";
 	}
 	
