@@ -40,7 +40,7 @@ public class WebController {
 			return addNewGame(customer);
 		}
 		
-		customer.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.ASC, "checkedOut")));
+		customer.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.DESC, "checkedOut").and(Sort.by("platform"))));
 		return "customerView";
 	}
 	
@@ -69,4 +69,32 @@ public class WebController {
 		repo.delete(g);
 		return viewAllGames(model);
 	}
+	
+	@GetMapping("/checkedOut/{id}")
+	public String rentGame(@PathVariable("id") long id, Model model) {
+		Game g = repo.findById(id).orElse(null);
+		g.setCheckedOut(true);
+		repo.save(g);
+		return viewAllGames(model);
+	}
+
+	@GetMapping("/rent/{id}")
+	public String rentGame(Game g, Model model) {
+		int qty = g.getQuantity();
+		qty = qty - 1;
+		g.setQuantity(qty);
+		repo.save(g);
+		return viewAllGames(model);
+	}
+	
+	@GetMapping("/rent")
+	public String rentGame(Model model) {
+		if(repo.findAll().isEmpty()) {
+			return addNewGame(model);
+		}
+		
+		model.addAttribute("games",repo.findAll());
+		return "rent";
+	}
+
 }
