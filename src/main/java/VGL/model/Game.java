@@ -22,7 +22,38 @@ public class Game {
 	private String genre;
 	@NonNull
 	private int players;
+	@NonNull
+	private boolean checkedOut;
+	@NonNull
+	private String platform;
+	@NonNull
+	private int quantity;
 	
+	public Game(String title, String genre, int players, boolean checkedOut, String platform, int quantity) {
+		super();
+		this.title = title;
+		this.genre = genre;
+		this.players = players;
+		this.checkedOut = checkedOut;
+		this.platform = platform;
+		this.quantity = quantity;
+
+	}
+	
+	public Game(String title, String genre, int players, int quantity) {
+		super();
+		this.title = title;
+		this.genre = genre;
+		this.players = players;
+		
+	}
+	public Game(String title, String genre, int players, boolean checkedOut) {
+		super();
+		this.title = title;
+		this.genre = genre;
+		this.players = players;
+		this.checkedOut = checkedOut;
+	}
 	public Game(String title, String genre, int players) {
 		super();
 		this.title = title;
