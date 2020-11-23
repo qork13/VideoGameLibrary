@@ -24,21 +24,19 @@ public class Game {
 	private int players;
 	@NonNull
 	private boolean checkedOut;
-	@NonNull
-	private String platform;
-	@NonNull
-	private int quantity;
+//	private String platform;
+//	private int quantity;
+	private int[] quantity;
 	
-	public Game(String title, String genre, int players, boolean checkedOut, String platform, int quantity) {
-		super();
-		this.title = title;
-		this.genre = genre;
-		this.players = players;
-		this.checkedOut = checkedOut;
-		this.platform = platform;
-		this.quantity = quantity;
-
-	}
+//	public Game(String title, String genre, int players, boolean checkedOut, String platform, int quantity) {
+//		super();
+//		this.title = title;
+//		this.genre = genre;
+//		this.players = players;
+//		this.checkedOut = checkedOut;
+//		this.platform = platform;
+//		this.quantity = quantity;
+//	}
 	
 	public Game(String title, String genre, int players, int quantity) {
 		super();

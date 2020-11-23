@@ -27,3 +27,13 @@ hs_err_pid*
 # application.properties #
 application.properties
 
+
+target/classes/META-INF/MANIFEST.MF
+
+.settings/org.eclipse.m2e.core.prefs
+
+.settings/org.eclipse.jdt.core.prefs
+
+.project
+
+target/classes/META-INF/maven/VGL/VideoGameLibrary/pom.properties
