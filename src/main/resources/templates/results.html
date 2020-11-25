@@ -11,8 +11,9 @@
 				<td th:text="'Title:' + ${currentGame.title} + ',  '"/>
 				<td th:text="'Genre:' + ${currentGame.genre} + ',  '"/>
 				<td th:text="'Number of Players:' + ${currentGame.players} + ',  '"/>
-				<td th:text="'Platform:' + ${currentGame.platform} + ',  '"/>
-				<td th:text="'Quantity:' + ${currentGame.quantity} + ',  '"/>
+				<!-- <td th:text="'Platform:' + ${currentGame.platform} + ',  '"/> -->
+				<!-- <td th:text="'Quantity:' + ${currentGame.quantity[1]} + ',  '"/> -->
+				<td th:unless="${#strings.isEmpty(currentGame.quantity)}">Quantity: ${currentGame.quantity[1]}</td>
 				<td th:text="'Checked Out:' + ${currentGame.checkedOut}"/>
 				<td><a th:href="@{/edit/{id}(id=${currentGame.id})}">Edit</a></td>
 				<td></td>

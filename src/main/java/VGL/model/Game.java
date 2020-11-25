@@ -1,5 +1,6 @@
 package VGL.model;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class Game {
 	private boolean checkedOut;
 //	private String platform;
 //	private int quantity;
+	@ElementCollection
 	private int[] quantity;
 	
 //	public Game(String title, String genre, int players, boolean checkedOut, String platform, int quantity) {
@@ -38,11 +40,12 @@ public class Game {
 //		this.quantity = quantity;
 //	}
 	
-	public Game(String title, String genre, int players, int quantity) {
+	public Game(String title, String genre, int players, int[] quantity) {
 		super();
 		this.title = title;
 		this.genre = genre;
 		this.players = players;
+		this.quantity = new int [] {0,0};
 		
 	}
 	public Game(String title, String genre, int players, boolean checkedOut) {

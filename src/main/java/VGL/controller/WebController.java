@@ -23,7 +23,9 @@ public class WebController {
 			return addNewGame(model);
 		}
 		
-		model.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.ASC, "platform")));
+		System.out.println(repo.findAll());
+		
+		model.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.ASC, "title")));
 		return "results";
 	}
 	
@@ -77,9 +79,9 @@ public class WebController {
 		g.setCheckedOut(true);
 		
 		//TODO commented out for testing, need to reimplement
-//		int qty = g.getQuantity();
-//		qty--;
-//		g.setQuantity(qty);
+		int[] qty = g.getQuantity();
+		qty[0] = qty[0] - 1;
+		g.setQuantity(qty);
 		repo.save(g);
 		return viewAllGames(model);
 	}
@@ -88,9 +90,9 @@ public class WebController {
 	public String rentGame(Game g, Model model) {
 		
 		//TODO commented out for testing, need to reimplement
-//		int qty = g.getQuantity();
-//		qty = qty - 1;
-//		g.setQuantity(qty);
+		int[] qty = g.getQuantity();
+		qty[0] = qty[0] - 1;
+		g.setQuantity(qty);
 		repo.save(g);
 		return viewAllGames(model);
 	}

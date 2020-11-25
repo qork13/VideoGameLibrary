@@ -12,7 +12,7 @@ public class BeanConfiguration {
 
 	@Bean
 	public Game game() {
-		Game bean = new Game( "title", "genre", 1, 0);
+		Game bean = new Game( "title", "genre", 1,new int[]{0,0});
 		return bean;
 	}
 	
