@@ -77,8 +77,15 @@ public class WebController {
 		repo.save(g);
 		return viewAllGames(model);
 	}
-	@GetMapping("/rent")
-	public String rentGames(Model model) {
+	
+	@GetMapping("/return/{id}")
+	public String returnGame(@PathVariable("id") long id, Model model) {
+		Game g = repo.findById(id).orElse(null);
+		g.setCheckedOut(false);;
+		repo.save(g);
+		return viewAllGames(model);
+	}
+
 	@GetMapping("/rent/{id}")
 	public String rentGame(Game g, Model model) {
 		int qty = g.getQuantity();
