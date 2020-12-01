@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import VGL.model.Game;
 import VGL.repository.GameRepository;
 
@@ -79,9 +77,14 @@ public class WebController {
 	public String rentGame(@PathVariable("id") long id, Model model) {
 		Game g = repo.findById(id).orElse(null);
 		g.setCheckedOut(true);
-		int qty = g.getQuantity();
-		qty--;
-		g.setQuantity(qty);
+		repo.save(g);
+		return viewAllGames(model);
+	}
+	
+	@GetMapping("/return/{id}")
+	public String returnGame(@PathVariable("id") long id, Model model) {
+		Game g = repo.findById(id).orElse(null);
+		g.setCheckedOut(false);;
 		repo.save(g);
 		return viewAllGames(model);
 	}
@@ -89,20 +92,22 @@ public class WebController {
 	@GetMapping("/rent/{id}")
 	public String rentGame(Game g, Model model) {
 		int qty = g.getQuantity();
-		qty = qty - 1;
+		qty--;
 		g.setQuantity(qty);
 		repo.save(g);
 		return viewAllGames(model);
 	}
+
+
 	
-	@GetMapping("/rent")
-	public String rentGame(Model model) {
+	@GetMapping("/checkedOutView")
+	public String checkedOutGame(Model rented, @Param(value = "checkedOut") boolean checkedOut) {
 		if(repo.findAll().isEmpty()) {
-			return addNewGame(model);
+			return addNewGame(rented);
 		}
 		
-		model.addAttribute("games",repo.findAll());
-		return "rent";
+		rented.addAttribute("games",repo.findByCheckedOut(checkedOut));
+		return "checkedOutView";
 	}
 
 }
