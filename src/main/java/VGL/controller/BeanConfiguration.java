@@ -11,7 +11,7 @@ public class BeanConfiguration {
 
 	@Bean
 	public Game game() {
-		Game bean = new Game( "title", "genre", 1, 0);
+		Game bean = new Game( "title", "genre", 1);
 		return bean;
 	}
 	
