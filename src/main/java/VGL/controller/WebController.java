@@ -98,6 +98,15 @@ public class WebController {
 		return viewAllGames(model);
 	}
 
+	@GetMapping("/rent")
+	public String rent(Model model) {
+		if(repo.findAll().isEmpty()) {
+			return addNewGame(model);
+		}
+		
+		model.addAttribute("games",repo.findAll(Sort.by(Sort.Direction.ASC, "platform")));
+		return "rent";
+	}
 
 	
 	@GetMapping("/checkedOutView")
