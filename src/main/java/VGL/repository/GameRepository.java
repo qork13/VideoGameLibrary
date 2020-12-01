@@ -17,7 +17,8 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 	@Query(nativeQuery = true, value="SELECT g.* FROM game g WHERE g.checked_out = false")
 	List<Game> findByAvailability(boolean checkedOut);
 	
-	
+	@Query(nativeQuery = true, value="SELECT g.* FROM game g WHERE g.checked_out = true")
+	List<Game> findByCheckedOut(boolean checkedOut);
 	
 	
 }

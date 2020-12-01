@@ -2,26 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>View All Games</title>
+<title>View Rented Games</title>
+
 </head>
 <body>
 	<form>
 		<table>
 			<tr th:each="currentGame : ${games}">
+				<td th:text="${currentGame.id}"/>
 				<td th:text="${currentGame.title}"/>
 				<td th:text="${currentGame.genre}"/>
 				<td th:text="${currentGame.players}"/>
 				<td th:text="${currentGame.platform}"/>
+				<td th:text="${currentGame.checkedOut}"/>
 				<td th:text="${currentGame.quantity}"/>
-				<td><a th:href="@{/edit/{id}(id=${currentGame.id})}">Edit</a></td>
 				<td></td>
-				<td><a th:href="@{/delete/{id}(id=${currentGame.id})}">Delete</a></td>
-				<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check Out</a></td>
+
 			</tr>
 		</table>
 	</form>
 	<button onclick="window.location.href='../inputGame'">Add a new Game</button>
-	<button type="button" onclick="window.location.href='../customerView'">View Available Games</button>
-	<button type="button" onclick="window.location.href='../checkedOutView'">View Checked Out Games</button>
 </body>
 </html>
