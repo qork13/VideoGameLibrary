@@ -18,11 +18,12 @@
 				<td></td>
 				<td><a th:href="@{/delete/{id}(id=${currentGame.id})}">Delete</a></td>
 				<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check Out</a></td>
+				<td><a th:href="@{/return/{id}(id=${currentGame.id})}">Return</a></td>
 			</tr>
 		</table>
 	</form>
 	<button onclick="window.location.href='../inputGame'">Add a new Game</button>
 	<button type="button" onclick="window.location.href='../customerView'">View Available Games</button>
-	<button type="button" onclick="window.location.href='../rent'">Rent A Game</button>
+	<button type="button" onclick="window.location.href='../checkedOutView'">View Checked Out Games</button>
 </body>
 </html>

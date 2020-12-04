@@ -16,6 +16,7 @@
 				<td th:text="'Quantity:' + ${currentGame.quantity}"/>
 				<td></td>
 				<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check Out</a></td>
+				<td><a th:href="@{/return/{id}(id=${currentGame.id})}">Return</a></td>
 			</tr>
 		</table>
 	</form>
