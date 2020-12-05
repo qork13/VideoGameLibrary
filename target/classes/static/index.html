@@ -3,21 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Video Game Library</title>
+<link rel="stylesheet" href="css/application.css"/>
+<link rel="stylesheet" href="css/navigation.css">
 </head>
 <body>
-	<h1>Video Game Library</h1>
+<!--HamBurger Icon-->
+<div class="bars" id="nav-action">
+  <span class="bar"> </span>
+</div>
+
+<!--Navbar Links-->
+<nav id="nav">
+  <ul>
+    <li class="shape-circle circle-one"><a href="viewAll">View All<</a></li>
+    <li class="shape-circle circle-two"><a href="inputGame">Add New Game</a></li>
+    <li class="shape-circle circle-three"><a href="customerView">Customer View</a></li>
+    <li class="shape-circle circle-four"><a href="rent">Rent a Game</a></li>
+    <li class="shape-circle circle-five"><a href="index.html">Home</a>
+    </li>
+    <!--  sourced from https://codepen.io/alexakasanjeev/pen/RPxGXY" -->
+  </ul>
+</nav>
+<script src="js/navigation.js"></script>
+
+<!--Main Body Content-->
+<article class="container">
+  	<h1>Video Game Library</h1>
 	<h3>Aleksander Brown</h3>
 	<h3>Jacob Tunning</h3>
 	<h3>Michael Smith</h3>
 	<h3>Kasey Marron</h3>
-	<br/>
+<!-- 	<h1 id="tagline"></h1>
+	<script src="js/application.js"></script> -->
+<!-- 	<br/>
 	<button type="button" onclick="window.location.href='viewAll'">View Games</button>
 	<br/>
 	<button type="button" onclick="window.location.href='inputGame'">Add New Game</button>
 	<br/>
 	<button type="button" onclick="window.location.href='customerView'">View Available Games</button>
 
-	<button type="button" onclick="window.location.href='rent'">Rent A Game</button>
-
+	<button type="button" onclick="window.location.href='rent'">Rent A Game</button> -->
+</article>
 </body>
 </html>
