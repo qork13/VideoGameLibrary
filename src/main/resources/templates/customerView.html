@@ -8,14 +8,23 @@
 	<h1>Available Video Games</h1>
 	<form>
 		<table>
+			<tr>
+				<th>Title</th>
+				<th>Genre</th>
+				<th>Number of Players</th>
+				<th>Platform</th>
+				<th>Quantity</th>
+				<th>Checked Out</th>
+			</tr>
 			<tr th:each="currentGame : ${games}">
-				<td th:text="'Title:' + ${currentGame.title} + ',  '"/>
-				<td th:text="'Genre:' + ${currentGame.genre} + ',  '"/>
-				<td th:text="'Number of Players:' + ${currentGame.players} + ',  '"/>
-				<td th:text="'Platform:' + ${currentGame.platform} + ',  '"/>
-				<td th:text="'Quantity:' + ${currentGame.quantity}"/>
+				<td  th:text="${currentGame.title}"/>
+				<td th:text="${currentGame.genre}"/>
+				<td th:text="${currentGame.players}"/>
+				<td th:text="${currentGame.platform}"/>
+				<td th:text="${currentGame.quantity}"/>
 				<td></td>
 				<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check Out</a></td>
+				<td><a th:href="@{/return/{id}(id=${currentGame.id})}">Return</a></td>
 			</tr>
 		</table>
 	</form>
