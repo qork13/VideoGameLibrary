@@ -3,24 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert New Game</title>
+<link rel="stylesheet" href="css/application.css" />
+<link rel="stylesheet" href="css/navigation.css">
 <script>
-	function validate(){
-		if(document.form.title.value == ""){
+	function validate() {
+		if (document.form.title.value == "") {
 			alert("Provide a title!");
 			document.form.title.focus();
 			return false;
 		}
-		if(document.form.genre.value == ""){
+		if (document.form.genre.value == "") {
 			alert("Provide a genre!");
 			document.form.genre.focus();
 			return false;
 		}
-		if(document.form.players.value < 1){
+		if (document.form.players.value < 1) {
 			alert("Enter a valid number of players");
 			document.form.players.focus();
 			return false;
 		}
-		if(document.form.platform.value == ""){
+		if (document.form.platform.value == "") {
 			alert("Provide a platform!");
 			document.form.genre.focus();
 			return false;
@@ -30,18 +32,42 @@
 </script>
 </head>
 <body>
-	<form name="form" th:object="${newGame}" th:action="@{/update/{id}(id=${newGame.id})}"
-	method=POST onsubmit="return validate()">
-		Title: <input name="title" size="20" th:field="*{title}"><br>
-		Genre: <input name="genre" size="20" th:field="*{genre}"><br>
-		Number of Players: <input name="players" size="3" th:field="*{players}"><br>
+	<!--HamBurger Icon-->
+	<div class="bars" id="nav-action">
+		<span class="bar"> </span>
+	</div>
 
-		Platform: <input name="platform" size="10" th:field="*{platform}"><br>
-		Quantity: <input name="quantity" size="10" th:field="*{quantity}"><br>
-		<input name="submit" type="submit" value="submit"/>
-	</form>
-	<button onclick="window.location.href='../viewAll'">View all Games</button>
-	<button type="button" onclick="window.location.href='rent'">Rent A Game</button>
+	<!--Navbar Links-->
+	<nav id="nav">
+		<ul>
+			<li class="shape-circle circle-one"><a href="viewAll">View
+					All</a></li>
+			<li class="shape-circle circle-two"><a href="inputGame">Add
+					New Game</a></li>
+			<li class="shape-circle circle-three"><a href="customerView">Customer
+					View</a></li>
+			<li class="shape-circle circle-four"><a href="rent">Rent a
+					Game</a></li>
+			<li class="shape-circle circle-five"><a href="index.html">Home</a>
+			</li>
+			<!--  sourced from https://codepen.io/alexakasanjeev/pen/RPxGXY" -->
+		</ul>
+	</nav>
+	<script src="js/navigation.js"></script>
 
+	<!--Main Body Content-->
+	<article class="container">
+		<form name="form" th:object="${newGame}"
+			th:action="@{/update/{id}(id=${newGame.id})}" method=POST
+			onsubmit="return validate()">
+			Title: <input name="title" size="20" th:field="*{title}"><br>
+			Genre: <input name="genre" size="20" th:field="*{genre}"><br>
+			Number of Players: <input name="players" size="3"
+				th:field="*{players}"><br> Platform: <input
+				name="platform" size="10" th:field="*{platform}"><br>
+			Quantity: <input name="quantity" size="10" th:field="*{quantity}"><br>
+			<input name="submit" type="submit" value="submit" />
+		</form>
+	</article>
 </body>
 </html>

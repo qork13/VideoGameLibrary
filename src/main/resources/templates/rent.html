@@ -3,28 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <title>View Rented Games</title>
-
+<link rel="stylesheet" href="css/application.css" />
+<link rel="stylesheet" href="css/navigation.css">
 </head>
 <body>
-	<form>
-		<table>
-			<tr th:each="currentGame : ${games}">
-				<td th:text="${currentGame.id}"/>
-				<td th:text="${currentGame.title}"/>
-				<td th:text="${currentGame.genre}"/>
-				<td th:text="${currentGame.players}"/>
+	<!--HamBurger Icon-->
+	<div class="bars" id="nav-action">
+		<span class="bar"> </span>
+	</div>
 
-				<td th:text="${currentGame.platform}"/>
-				<td th:text="${currentGame.checkedOut}"/>
-				<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check Out</a></td>
-				<td><a th:href="@{/return/{id}(id=${currentGame.id})}">Return</a></td>
+	<!--Navbar Links-->
+	<nav id="nav">
+		<ul>
+			<li class="shape-circle circle-one"><a href="viewAll">View
+					All</a></li>
+			<li class="shape-circle circle-two"><a href="inputGame">Add
+					New Game</a></li>
+			<li class="shape-circle circle-three"><a href="customerView">Customer
+					View</a></li>
+			<li class="shape-circle circle-four"><a href="rent">Rent a
+					Game</a></li>
+			<li class="shape-circle circle-five"><a href="index.html">Home</a>
+			</li>
+			<!--  sourced from https://codepen.io/alexakasanjeev/pen/RPxGXY" -->
+		</ul>
+	</nav>
+	<script src="js/navigation.js"></script>
 
-				<td th:text="${currentGame.quantity}"/>
-				<td></td>
+	<!--Main Body Content-->
+	<article class="container">
+		<form>
+			<table>
+				<tr th:each="currentGame : ${games}">
+					<td th:text="${currentGame.id}" />
+					<td th:text="${currentGame.title}" />
+					<td th:text="${currentGame.genre}" />
+					<td th:text="${currentGame.players}" />
 
-			</tr>
-		</table>
-	</form>
-	<button onclick="window.location.href='../inputGame'">Add a new Game</button>
+					<td th:text="${currentGame.platform}" />
+					<td th:text="${currentGame.checkedOut}" />
+					<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check
+							Out</a></td>
+					<td><a th:href="@{/return/{id}(id=${currentGame.id})}">Return</a></td>
+
+					<td th:text="${currentGame.quantity}" />
+					<td></td>
+
+				</tr>
+			</table>
+		</form>
+		<button onclick="window.location.href='../inputGame'">Add a
+			new Game</button>
+	</article>
 </body>
 </html>
