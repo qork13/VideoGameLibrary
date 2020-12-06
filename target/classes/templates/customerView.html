@@ -3,37 +3,66 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Customer View</title>
+<link rel="stylesheet" href="css/application.css" />
+<link rel="stylesheet" href="css/navigation.css">
 </head>
 <body>
-	<h1>Available Video Games</h1>
-	<form>
-		<table>
-			<tr>
-				<th>Title</th>
-				<th>Genre</th>
-				<th>Number of Players</th>
-				<th>Platform</th>
-				<th>Quantity</th>
-				<th>Checked Out</th>
-			</tr>
-			<tr th:each="currentGame : ${games}">
-				<td  th:text="${currentGame.title}"/>
-				<td th:text="${currentGame.genre}"/>
-				<td th:text="${currentGame.players}"/>
-				<td th:text="${currentGame.platform}"/>
-				<td th:text="${currentGame.quantity}"/>
-				<td></td>
-				<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check Out</a></td>
-				<td><a th:href="@{/return/{id}(id=${currentGame.id})}">Return</a></td>
-			</tr>
-		</table>
-	</form>
-	<button onclick="window.location.href='../inputGame'">Add a new Game</button>
-	<button type="button" onclick="window.location.href='viewAll'">View All Games</button>
+
+	<!--HamBurger Icon-->
+	<div class="bars" id="nav-action">
+		<span class="bar"> </span>
+	</div>
+
+	<!--Navbar Links-->
+	<nav id="nav">
+		<ul>
+			<li class="shape-circle circle-one"><a href="viewAll">View
+					All</a></li>
+			<li class="shape-circle circle-two"><a href="inputGame">Add
+					New Game</a></li>
+			<li class="shape-circle circle-three"><a href="customerView">Customer
+					View</a></li>
+			<li class="shape-circle circle-four"><a href="rent">Rent a
+					Game</a></li>
+			<li class="shape-circle circle-five"><a href="index.html">Home</a>
+			</li>
+			<!--  sourced from https://codepen.io/alexakasanjeev/pen/RPxGXY" -->
+		</ul>
+	</nav>
+	<script src="js/navigation.js"></script>
+
+	<!--Main Body Content-->
+	<article class="container">
+		<h2>Available Video Games</h2>
+		<form>
+			<table>
+				<tr>
+					<th>Title</th>
+					<th>Genre</th>
+					<th>Number of Players</th>
+					<th>Platform</th>
+					<th>Quantity</th>
+					<th>Checked Out</th>
+				</tr>
+				<tr th:each="currentGame : ${games}">
+					<td th:text="${currentGame.title}" />
+					<td th:text="${currentGame.genre}" />
+					<td th:text="${currentGame.players}" />
+					<td th:text="${currentGame.platform}" />
+					<td th:text="${currentGame.quantity}" />
+					<td></td>
+					<td><a th:href="@{/checkedOut/{id}(id=${currentGame.id})}">Check
+							Out</a></td>
+					<td><a th:href="@{/return/{id}(id=${currentGame.id})}">Return</a></td>
+				</tr>
+			</table>
+		</form>
+	</article>
 	
 <footer>
 <h3>Video Game Library</h3>
 <p>Aleksander Brown, Jacob Tunning, Michael Smith, Kasey Marron</p>
 </footer>
+
 </body>
 </html>

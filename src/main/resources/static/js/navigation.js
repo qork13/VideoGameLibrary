@@ -1,3 +1,5 @@
+/* sourced in part from https://codepen.io/alexakasanjeev/pen/RPxGXY"*/
+
 // Setting up the Variables
 var bars = document.getElementById("nav-action");
 var nav = document.getElementById("nav");
