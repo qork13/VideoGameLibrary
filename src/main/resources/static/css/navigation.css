@@ -172,41 +172,6 @@ nav.visible li:last-child a {
   text-indent:12vw !important;
 }
 
-
-/* Main Body CSS */
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-h1 {
-  font-size: 60px;
-  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  text-transform: uppercase;
-  font-size: 120px;
-  letter-spacing:5px;
-  padding-top:40px;
-}
-
-article p {
-  padding-bottom: 15px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-article a {
-  color: #fff;
-  text-decoration: none;
-  opacity: .2;
-  font-size: 12px;
-}
-
-article a:hover {
-  opacity: .8;
-}
-
 @keyframes top-bar {
   50% {
     transform: translateY(0);
