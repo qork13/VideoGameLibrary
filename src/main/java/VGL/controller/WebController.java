@@ -77,6 +77,9 @@ public class WebController {
 	public String rentGame(@PathVariable("id") long id, Model model) {
 		Game g = repo.findById(id).orElse(null);
 		g.setCheckedOut(true);
+		int qty = g.getQuantity();
+		qty--;
+		g.setQuantity(qty);
 		repo.save(g);
 		return viewAllGames(model);
 	}
@@ -85,6 +88,9 @@ public class WebController {
 	public String returnGame(@PathVariable("id") long id, Model model) {
 		Game g = repo.findById(id).orElse(null);
 		g.setCheckedOut(false);;
+		int qty = g.getQuantity();
+		qty++;
+		g.setQuantity(qty);
 		repo.save(g);
 		return viewAllGames(model);
 	}
