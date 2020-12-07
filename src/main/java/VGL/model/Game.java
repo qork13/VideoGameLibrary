@@ -1,9 +1,19 @@
 package VGL.model;
 
+
+
+import java.time.Instant;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,8 +38,10 @@ public class Game {
 	private String platform;
 	@NonNull
 	private int quantity;
+	private Instant checkOutDate;
 	
-	public Game(String title, String genre, int players, boolean checkedOut, String platform, int quantity) {
+	
+	public Game(String title, String genre, int players, boolean checkedOut, String platform, int quantity, Instant checkOutDate) {
 		super();
 		this.title = title;
 		this.genre = genre;
@@ -37,6 +49,7 @@ public class Game {
 		this.checkedOut = checkedOut;
 		this.platform = platform;
 		this.quantity = quantity;
+		this.checkOutDate = checkOutDate;
 
 	}
 	
