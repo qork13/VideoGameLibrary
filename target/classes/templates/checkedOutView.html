@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>View Rented Games</title>
-<link rel="stylesheet" type="text/css" media="all"
-	th:href="@{/css/application.css}" />
-<link rel="stylesheet" type="text/css" media="all"
-	th:href="@{/css/navigation.css}">
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/application.css}"/>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/navigation.css}"/>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/table.css}"/>
 </head>
 <body>
 	<!--HamBurger Icon-->
@@ -43,6 +42,7 @@
 					<th>Platform</th>
 					<th>Quantity</th>
 					<th>Checked Out</th>
+					<th>Last Check Out Date</th>
 				</tr>
 				<tr th:each="currentGame : ${games}">
 					<td th:text="${currentGame.title}" />
@@ -51,6 +51,7 @@
 					<td th:text="${currentGame.platform}" />
 					<td th:text="${currentGame.quantity}" />
 					<td th:text="${currentGame.checkedOut}" />
+					<td th:text="${currentGame.checkOutDate}"/td>
 					<td></td>
 				</tr>
 			</table>
