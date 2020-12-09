@@ -1,5 +1,7 @@
 package VGL.controller;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +79,8 @@ public class WebController {
 	public String rentGame(@PathVariable("id") long id, Model model) {
 		Game g = repo.findById(id).orElse(null);
 		g.setCheckedOut(true);
+		Instant checkOutDate = g.getCheckOutDate().now();
+		g.setCheckOutDate(checkOutDate);
 		int qty = g.getQuantity();
 		qty--;
 		g.setQuantity(qty);
@@ -87,7 +91,8 @@ public class WebController {
 	@GetMapping("/return/{id}")
 	public String returnGame(@PathVariable("id") long id, Model model) {
 		Game g = repo.findById(id).orElse(null);
-		g.setCheckedOut(false);;
+		g.setCheckedOut(false);
+		g.setCheckOutDate(null);
 		int qty = g.getQuantity();
 		qty++;
 		g.setQuantity(qty);

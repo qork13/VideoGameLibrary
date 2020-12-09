@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>View Rented Games</title>
-<link rel="stylesheet" href="css/application.css" />
-<link rel="stylesheet" href="css/navigation.css">
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/application.css}"/>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/navigation.css}"/>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/table.css}"/>
 </head>
 <body>
 	<!--HamBurger Icon-->
@@ -15,25 +16,25 @@
 	<!--Navbar Links-->
 	<nav id="nav">
 		<ul>
-			<li class="shape-circle circle-one"><a href="viewAll">View
+			<li class="shape-circle circle-one"><a th:href="@{viewAll}">View
 					All</a></li>
-			<li class="shape-circle circle-two"><a href="inputGame">Add
+			<li class="shape-circle circle-two"><a th:href="@{inputGame}">Add
 					New Game</a></li>
-			<li class="shape-circle circle-three"><a href="customerView">Customer
+			<li class="shape-circle circle-three"><a th:href="@{customerView}">Customer
 					View</a></li>
-			<li class="shape-circle circle-four"><a href="rent">Rent a
+			<li class="shape-circle circle-four"><a th:href="@{rent}">Rent a
 					Game</a></li>
-			<li class="shape-circle circle-five"><a href="index.html">Home</a>
+			<li class="shape-circle circle-five"><a th:href="index.html">Home</a>
 			</li>
-			<!--  sourced from https://codepen.io/alexakasanjeev/pen/RPxGXY" -->
 		</ul>
 	</nav>
-	<script src="js/navigation.js"></script>
+	<script type="text/javascript" th:src="@{/js/navigation.js}"></script>
 
 	<!--Main Body Content-->
 	<article class="container">
+		<h1>Games Currently Out</h1>
 		<form>
-			<table>
+			<table class="data">
 				<tr>
 					<th>Title</th>
 					<th>Genre</th>
@@ -41,6 +42,7 @@
 					<th>Platform</th>
 					<th>Quantity</th>
 					<th>Checked Out</th>
+					<th>Last Check Out Date</th>
 				</tr>
 				<tr th:each="currentGame : ${games}">
 					<td th:text="${currentGame.title}" />
@@ -49,18 +51,16 @@
 					<td th:text="${currentGame.platform}" />
 					<td th:text="${currentGame.quantity}" />
 					<td th:text="${currentGame.checkedOut}" />
+					<td th:text="${currentGame.checkOutDate}"/td>
 					<td></td>
-
-
 				</tr>
 			</table>
 		</form>
 	</article>
-	
-<footer>
-<h3>Video Game Library</h3>
-<p>Aleksander Brown, Jacob Tunning, Michael Smith, Kasey Marron</p>
-</footer>
+	<footer class="footer">
+		<h3>Video Game Library</h3>
+		<p>Aleksander Brown, Jacob Tunning, Michael Smith, Kasey Marron</p>
+	</footer>
 
 </body>
 </html>

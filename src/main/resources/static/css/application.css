@@ -1,15 +1,74 @@
 body {
   position: relative;
   background: url('../images/QFxn9e.jpg') no-repeat center center fixed;
-  background-size: cover;
+  background-color: black;
+  background-size: 100%;
   min-width: 500px;
   min-height: 200px;
   color: #fff;
   font-family: 'Montserrat';
   height:100vmax;
+  margin: 0;
 }
 
+.footer{
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width:100%;
+}
+
+/* Main Body CSS */
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+
 h1{
+	font-size: 60px;
+	text-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	text-transform: uppercase;
+	font-size: 90px;
+	letter-spacing:5px;
+	padding-top:40px;
 	color: #00373a;
 	text-align: center;
+}
+
+.button-pri {
+  --button: hsl(0, 0%, 79%);
+  --button-hover: hsl(0, 0%, 89%);
+  --button-active:  hsl(0, 0%, 69%);
+  --button-visited: hsl(0, 0%, 89%);
+  --button-colour: #1e1e1e;
+  --button-border: #ffffff;
+}
+
+article p{
+  padding-bottom: 15px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+article a{
+  color: #fff;
+  text-decoration: none;
+  opacity: .2;
+  font-size: 12px;
+}
+
+article a:hover{
+  opacity: .8;
+  cursor: pointer;
+}
+
+@media screen and (max-width:800px) {
+
+  h1{
+    padding-top:80px;
+    font-size: 60px;
+  }
 }
