@@ -109,5 +109,4 @@ public class WebController {
 		rented.addAttribute("games",repo.findByCheckedOut(checkedOut));
 		return "checkedOutView";
 	}
-
 }
